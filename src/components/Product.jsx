@@ -7,6 +7,7 @@ const Product = () => {
         product_image:""
     })
     let {product_id}=useParams()
+    const API_URL='http://127.0.0.1:8000'
 
     useEffect(()=>{
         get_product()
@@ -36,7 +37,7 @@ const Product = () => {
         {prod?.price}
       </span>
     </div>
-    <form action="" method="POST">
+    <form action={`${API_URL}/api/create-checkout-session/${product_id}/`} method="POST">
     <div className="px-6 pt-4 pb-2">
       <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
         Add to Cart
